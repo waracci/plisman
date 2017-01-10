@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { ListingType, StatusModel } from '../../../shared/models';
 
@@ -10,8 +10,13 @@ import { ListingType, StatusModel } from '../../../shared/models';
 export class ListingsNavigationComponent implements OnInit {
   @Input() listingTypes: ListingType[];
   @Input() status: StatusModel[];
+  @Output() newStatus: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
+
+  setStatus(){
+    this.newStatus.emit()
+  }
 
   ngOnInit() {
   }

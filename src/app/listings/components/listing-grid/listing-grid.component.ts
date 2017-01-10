@@ -9,7 +9,7 @@ import { Listing } from '../../../shared/models';
 })
 export class ListingGridComponent implements OnInit {
   @Input() listings: Listing[];
-  
+
   constructor() { }
 
   ngOnInit() {
