@@ -1,0 +1,52 @@
+<nav class="navbar navbar-dark bg-inverse">`
+  <div class="container">
+    <button 
+    class="navbar-toggler hidden-lg-up" 
+    type="button" 
+    (click)="isCollapsed = !isCollapsed" 
+    [attr.aria-expanded]= "!isCollapsed"
+    aria-controls="collapseControls"></button>
+    <a class="navbar-brand" href="" [routerLink]="['/']">Plisman Properties</a>
+    <ul 
+    class="nav navbar-nav collapse navbar-toggleable-xs float-xs-right" 
+    id="collapseControls" 
+    [ngbCollapse]="isCollapsed">
+      <li class="nav-item">
+        <a class="nav-link" href="" [routerLink]="['/about']">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/contact-us']">Contact Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/profile']" *ngIf="_auth.authenticated()">Profile</a>
+      </li>
+      <li class="nav-item dropdown" ngbDropdown #myDrop="ngbDropdown">
+        <a class="nav-link dropdown-toggle" id="dropdownMenu" ngbDropdownToggle>Services <b class="caret"></b></a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+          <button class="dropdown-item">Property Management <small class="text-warning">(Under Development)</small></button>
+          <button class="dropdown-item">Deposit transfer* <small class="text-warning">(Under Development)</small></button>
+          <button class="dropdown-item">Office SubLetting <small class="text-warning">(Under Development)</small></button>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn btn-outline-primary" (click)="_auth.login()" *ngIf="!_auth.authenticated()">Login/ Signup</a>
+        <a class="nav-link btn btn-outline-danger" (click)="open(content)" *ngIf="_auth.authenticated()">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<template #content let-c="close" let-d="dismiss" ngbModalContainer>
+  <div class="modal-header bg-inverse">
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title text-white">Loging Out</h4>
+  </div>
+  <div class="modal-body">
+    <p class="text-danger">You are about to logout, are you sure?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="c('Close click')" (click)="_auth.logout()">Log Out</button>
+  </div>
+</template>

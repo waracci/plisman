@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h1 class="display-4">Properties Page <small class="text-muted">Find houses, hostels, offices and among other properties here...</small></h1>
+  <div class="card">
+    <div class="card-header bg-inverse text-white">
+      <app-listings-navigation 
+      [listingTypes]="listingTypes"
+      [status]="status"></app-listings-navigation>
+    </div>
+    <div class="card-block">
+      <app-listing-grid [listings]="listings"></app-listing-grid>
+    </div>
+  </div>
+</div>

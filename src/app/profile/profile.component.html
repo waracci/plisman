@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h1 class="display-4">Profile Page <small class="text-muted">View & edit all your profile details here.</small></h1>
+  <div class="row">
+    <div class="col-md-8">
+      <app-user-details [userProfile]="user"></app-user-details>
+    </div>
+    <div class="col-md-4">
+      <app-user-menu></app-user-menu>
+    </div>
+  </div>
+  <div class="row">
+    <app-user-listings></app-user-listings>
+  </div>
+</div>
+<app-footer></app-footer>

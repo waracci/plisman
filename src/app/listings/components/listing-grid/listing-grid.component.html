@@ -1,0 +1,19 @@
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" *ngFor="let listing of listings">
+  <div class="card">
+    <img [src]="listing.image1" class="card-img-top">
+    <div class="card-block">
+      <h4 class="card-title">{{ listing.name }}</h4>
+      <p class="text-small">{{ listing.description }}</p>
+      <p class="float-xs-left text-warning">{{ listing.status }}</p>
+      <p class="float-xs-right text-success">{{ listing.type }}</p>
+    </div>
+    <div class="card-block bg-inverse text-white small-font">
+      <p class="float-xs-left">Ksh. {{ listing.price }}</p>
+      <p class="float-xs-right">
+        <a href="" class="btn btn-success">Save Listing</a>
+        <a href="" class="btn btn-primary">More Details</a>
+      </p>
+    </div>
+
+  </div>
+</div>

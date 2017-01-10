@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-block bg-inverse">
+    <h2 class="card-title text-white">{{userProfile.nickname}}</h2>
+  </div>
+  <div class="card-block">
+    <div class="row">
+      <div class="col-md-4">
+        <img [src]="userProfile.picture" class="img-fluid">
+      </div>
+      <div class="col-md-8">
+        <h2 class="text-primary"> About </h2>
+        <p>Details to your business profile</p>
+        <h3 class="text-primary">Contact Info</h3>
+        <ul class="list-group">
+          <li class="list-group-item"><h5>Name:</h5>{{userProfile.nickname}}</li>
+          <li class="list-group-item"><h5>Email:</h5>{{userProfile.email}}</li>
+          <li class="list-group-item"><h5>Phone No:</h5><a href="">add</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+</div>
