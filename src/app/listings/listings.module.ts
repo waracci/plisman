@@ -10,10 +10,10 @@ import { SharedModule } from '../shared/shared.module';
 import { ListingsService, ListingTypeService, LocationsService, StatusService } from '../shared/services';
 
 import { ListingsComponent } from './containers/listings/listings.component';
-import { ListingComponent } from './containers/listing/listing.component';
 import { PostListingComponent } from './containers/post-listing/post-listing.component';
 import { ListingsNavigationComponent } from './components/listings-navigation/listings-navigation.component';
 import { ListingGridComponent } from './components/listing-grid/listing-grid.component';
+import { SingleListingComponent } from './containers/single-listing/single-listing.component';
 
 @NgModule({
   imports: [
@@ -26,10 +26,10 @@ import { ListingGridComponent } from './components/listing-grid/listing-grid.com
   ],
   declarations: [
     ListingsComponent,
-    ListingComponent,
     PostListingComponent,
     ListingsNavigationComponent,
-    ListingGridComponent
+    ListingGridComponent,
+    SingleListingComponent
   ],
   exports: [
     ListingsComponent

@@ -2,21 +2,19 @@
   <app-navbar></app-navbar>
   <div class="container">
     <section class="jumbotron text-xs-center bg-inverse">
-      <h1 class="jumbotron-heading">Welcome To PlisMan Listings And Mangement</h1>
+      <h1 class="jumbotron-heading">Welcome To PlisMan Listings And Management</h1>
       <p class="lead text-muted">
         The No1. Place To Find or Post Houses, Apartments, Flats, Offices, Hostels and Other Properties For Sale or For Rent.
       </p>
       <p>
-        <a href="#" class="btn btn-primary" [routerLink]="['/listings']">Find Properties</a>
-        <a href="#" class="btn btn-secondary">Post Properties</a>
+        <a class="btn btn-primary" [routerLink]="['/listings']">Find Properties</a>
+        <a class="btn btn-secondary" [routerLink]="['/post-listing']" *ngIf="_auth.authenticated()">Post Properties</a>
       </p>
     </section>
-
     <div class="row card-deck-wrapper">
       <h1 class="section-title">Featured Listings</h1>
       <app-featured-listings></app-featured-listings>
     </div>
-
     <div class="row row-offcanvas row-offcanvas-right">
       <h1 class="section-title">Modern Plisting Features</h1>
       <div class="col-xs-12 col-sm-9 blarb card">
@@ -44,9 +42,20 @@
         </div>
       </div>
       <div class="col-xs-6 col-sm-3">
-        Navigation and Ads
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-primary">Nav and Ads</h4>
+          </div>
+          <div class="card-block">
+            <ul class="list-group">
+              <a class="list-group-item" [routerLink]="['/listings']">View Listings</a>
+              <a class="list-group-item" [routerLink]="['/about']">About Us</a>
+              <a class="list-group-item" [routerLink]="['/contact-us']">Contact Us</a>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>  
+    </div>
     <hr>
     <!-- Call to Action Section -->
     <div class="jumbotron bg-inverse">
@@ -60,8 +69,7 @@
         </div>
       </div>
     </div>
-    <hr> 
+    <hr>
   </div>
-
   <app-footer></app-footer>
 </div>

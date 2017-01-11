@@ -8,12 +8,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { ListingsComponent } from './listings/containers/listings/listings.component';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { PostListingComponent } from './listings/containers/post-listing/post-listing.component';
 
 
 export const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: '', component: HomePageComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'listings', component: ListingsComponent },
+  { path: 'post-listing', component: PostListingComponent, canActivate: [AuthGuardService] },
   { path: 'about', component: AboutComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: '**', redirectTo: '' }

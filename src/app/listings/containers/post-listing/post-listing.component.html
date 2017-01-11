@@ -1,3 +1,141 @@
-<p>
-  post-listing works!
-</p>
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="page-header">
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <h1 class="card-header">Post a Listing</h1>
+        <div class="card-block">
+          <form novalidate (ngSubmit)="onSubmit(listing)" [formGroup]="listing">
+            <div class="form-group">
+              <label>
+        <span>Name</span>
+        </label>
+              <input type="text" formControlName="name" placeholder="Enter listing name" class="form-control">
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>
+        <span>Listing Type</span>
+        </label>
+                  <select formControlName="type">
+          <option value="">Select a type</option>
+          <option *ngFor="let type of listingTypes" value="{{type.name}}">{{ type.name }}</option>
+        </select>
+                  <div class="error" *ngIf="listing.get('type').hasError('required') && listing.get('type').touched">
+                    Listing type is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label> <span>Listing Status</span> </label>
+                  <select formControlName="status">
+                    <option value="">Select a Status</option>
+                    <option *ngFor="let stat of status" value="{{stat.name}}">{{ stat.name }}</option>
+                  </select>
+                  <div class="error" *ngIf="listing.get('status').hasError('required') && listing.get('type').touched">
+                    Status type is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>
+        <span>Owner</span>
+        </label>
+              <input type="text" formControlName="owner" placeholder="Enter Your name" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>
+        <span>Price</span>
+        </label>
+              <input type="text" formControlName="price" placeholder="Enter listing's price" class="form-control">
+              <div class="error" *ngIf="listing.get('price').hasError('required') && listing.get('price').touched">
+                Listing type is required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>
+        <span>Description</span>
+        </label>
+              <input type="text-area" formControlName="description" placeholder="Give Listing's description" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>
+        <span>Location</span>
+        </label>
+              <input type="text" formControlName="location" placeholder="Enter listing's location" class="form-control">
+              <div class="error" *ngIf="listing.get('location').hasError('required') && listing.get('location').touched">
+                Listing type is required
+              </div>
+            </div>
+            <div class="form-inline">
+              <div class="form-group">
+                <label>
+        <span>Image1</span>
+        </label>
+                <input type="text" formControlName="image1" placeholder="post image" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>
+        <span>Image2</span>
+        </label>
+                <input type="text" formControlName="image2" placeholder="post image" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>
+        <span>Image3</span>
+        </label>
+                <input type="text" formControlName="image3" placeholder="post image" class="form-control">
+              </div>
+            </div>
+            <button type="submit" [disabled]="listing.invalid" class="btn btn-primary">Post Listing</button>
+          </form>
+          {{ listing.value | json }} {{ listing.valid | json}}
+          <!--card-block-->
+        </div>
+        <!--//end card here-->
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h2 class="card-header">nav</h2>
+        <div class="card-block">
+          <div class="btn-group">
+            <a routerLink="['/listings']" class="btn btn-success">All listings</a>
+            <a class="btn btn-info">saved listings</a>
+            <a routerLink="/profile" class="btn btn-secondary">profile</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h4 class="card-header">Posting a listing made easy!</h4>
+        <div class="card-block">
+          <!-- secondary panel contents -->
+          <p>This form dynamically allows you to make a listing into our database. The listing made will be available for viewing
+            as soon as you post it. Follow the steps highlighted below to make your maiden listing.</p>
+          <span class="text-xs-center">
+            <a href="#" class="btn btn-success">Read More</a>
+            </span>
+          <!-- List group -->
+          <ol class="list-group">
+            <li class="list-group-item">Give your listing a name</li>
+            <li class="list-group-item">Select a type for your listing</li>
+            <li class="list-group-item">Enter Owner Details</li>
+            <li class="list-group-item">Enter the relevant price</li>
+            <li class="list-group-item">Give a brief description</li>
+            <li class="list-group-item">Enter Location</li>
+            <li class="list-group-item">Post the relevant images</li>
+          </ol>
+        </div>
+      </div>
+      <!--end card-->
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

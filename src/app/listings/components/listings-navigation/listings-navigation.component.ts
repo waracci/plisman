@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { ListingType, StatusModel } from '../../../shared/models';
+import { AuthService } from '../../../shared/services';
 
 @Component({
   selector: 'app-listings-navigation',
@@ -12,7 +13,7 @@ export class ListingsNavigationComponent implements OnInit {
   @Input() status: StatusModel[];
   @Output() newStatus: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+  constructor(private noauth: AuthService) { }
 
   setStatus(){
     this.newStatus.emit()
