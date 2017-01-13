@@ -5,10 +5,16 @@
     <div class="card-header bg-inverse text-white">
       <app-listings-navigation 
       [listingTypes]="listingTypes"
-      [status]="status"></app-listings-navigation>
+      [status]="status"
+      (newStatus)="filterListingsStatus($event)"
+      (newType)="filterListingsType($event)"
+      [(searchValue)]="searchTerm"></app-listings-navigation>
     </div>
     <div class="card-block">
-      <app-listing-grid [listings]="listings"></app-listing-grid>
+      <app-listing-grid 
+      [listings]="listings"
+      [searchTerm]="searchTerm"
+      ></app-listing-grid>
     </div>
   </div>
 </div>

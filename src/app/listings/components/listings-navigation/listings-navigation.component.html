@@ -1,18 +1,30 @@
 <h3>Listings</h3>
-<ul class="nav navbar-nav float-xs-right">
+<div class="row"> 
+  <div class="col-md-6">
+    <ul class="nav navbar-nav float-xs-right">
   <li class="nav-item">
     <a class="btn btn-primary" [routerLink]="['/post-listing']" *ngIf="noauth.authenticated()">Post A Listing</a>
   </li>
   <li class="nav-item dropdown"  ngbDropdown #myDrop1="ngbDropdown">
     <a class="nav-link dropdown-toggle" id="dropdownMenu1" ngbDropdownToggle>Listing Status <b class="caret"></b></a>
     <div class="dropdown-menu"  aria-labelledby="dropdownMenu1">
-      <button class="dropdown-item" *ngFor="let stat of status" value="{{stat.name}}">{{ stat.name }}</button>
+      <button class="dropdown-item" *ngFor="let stat of status" (click)="setStatus(stat.name)">{{ stat.name }}</button>
     </div>
   </li>
   <li class="nav-item dropdown"  ngbDropdown #myDrop="ngbDropdown">
     <a class="nav-link dropdown-toggle" id="dropdownMenu" ngbDropdownToggle>Listing Types <b class="caret"></b></a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-      <button class="dropdown-item" *ngFor="let type of listingTypes" value="{{type.name}}">{{ type.name }}</button>
+      <button class="dropdown-item" *ngFor="let type of listingTypes" (click)="setType(type.name)">{{ type.name }}</button>
     </div>
   </li>
 </ul>
+  </div>
+  <div class="col-md-6"> 
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="search for ..." [ngModel]="searchValue" (ngModelChange)="search($event)">
+      <span class="input-group-btn">
+        <button class="btn btn-info" type="submit">search</button>
+      </span>
+    </div>
+  </div>
+</div>

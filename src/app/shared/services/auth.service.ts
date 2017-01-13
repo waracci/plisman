@@ -32,7 +32,7 @@ export class AuthService {
       localStorage.setItem('id_token', authResult.idToken);
       // fetch profile info
       this.lock.getProfile(authResult.idToken, (error, profile) => {
-        if (error){
+        if (error) {
           alert(error);
           return;
         }

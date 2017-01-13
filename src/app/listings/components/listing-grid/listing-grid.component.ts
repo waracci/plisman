@@ -10,6 +10,7 @@ import { Listing } from '../../../shared/models';
 })
 export class ListingGridComponent implements OnInit {
   @Input() listings: Listing[];
+  @Input() searchTerm: string;
 
   constructor() { }
 
