@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Ng2PaginationModule} from 'ng2-pagination'; // <-- import the module
 
 import { Listing } from '../../../shared/models';
 
