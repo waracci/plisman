@@ -1,6 +1,3 @@
-
-import { Component, OnInit } from '@angular/core';
-
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -17,11 +14,6 @@ import { ListingsService } from '../../../shared/services';
   styleUrls: ['./single-listing.component.css']
 })
 
-export class SingleListingComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
 
 export class SingleListingComponent implements OnInit, OnDestroy {
   listing: Listing;
@@ -46,15 +38,6 @@ export class SingleListingComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-  }
-
-  getListing(id: any) {
-    this._listingService.getSingleListing(id)
-      .subscribe(
-        listing => this.listing = listing,
-        error => this.errorMessage = <any>error
-      );
-    console.log(this.listing);
   }
 
 }
