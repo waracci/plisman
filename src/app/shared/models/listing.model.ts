@@ -1,7 +1,8 @@
 export class Listing {
   constructor(
     location: string,
-    date: string,
+    public $key: string,
+    public date: number,
     type: string,
     owner: string,
     price: string,
@@ -10,6 +11,6 @@ export class Listing {
     image1: string,
     image2?: string,
     image3?: string,
-    name?: string,
+    public name?: string,
   ) {}
 }

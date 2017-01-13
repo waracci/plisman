@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="container" *ngIf="listing">
+  <div class="card">
+    <div class="card-block bg-inverse">
+      <h2 class="card-title text-white">Property Details</h2>
+    </div>
+    <img [src]="listing.image1" class="card-img-top">
+    <div class="card-block">
+      <h4 class="card-title">{{ listing.name }}</h4>
+      <p class="text-small">{{ listing.description }}</p>
+      <p class="float-xs-left text-warning">{{ listing.status }}</p>
+      <p class="float-xs-right text-success">{{ listing.type }}</p>
+      <p class="text-small">{{ listing.price }}</p>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
