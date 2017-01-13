@@ -13,17 +13,20 @@ export class ListingsComponent implements OnInit {
   listingTypes: ListingType[];
   locations: LocationModel[];
   status: StatusModel[];
+  searchTerm: string;
 
   constructor(
     private _listingService: ListingsService,
     private _listingTypeService: ListingTypeService,
     private _locationsService: LocationsService,
     private _statusService: StatusService
-  ) { }
+  ) {
+   }
 
   ngOnInit() {
     this._listingService.getListing()
       .subscribe(listings => this.listings = listings);
+      console.log(this.listings);
 
     this._listingTypeService.getTypes()
       .subscribe(listingTypes => this.listingTypes = listingTypes);
@@ -40,9 +43,10 @@ export class ListingsComponent implements OnInit {
       .subscribe(listings => this.listings = listings);
   }
 
-  filterListingsStatus(status){
+  filterListingsStatus(status) {
     this._listingService.getListingByStatus(status)
       .subscribe(listings => this.listings = listings);
+    console.log(status);
   }
 
 }

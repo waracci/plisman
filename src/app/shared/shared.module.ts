@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   imports: [
@@ -15,11 +16,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   declarations: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SearchPipe
   ],
   exports: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SearchPipe
   ]
 })
 

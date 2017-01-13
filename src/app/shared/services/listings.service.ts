@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
+
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 import { AuthService } from './auth.service';
 import { Listing } from '../models/listing.model';
+
+
 
 
 @Injectable()
@@ -14,10 +19,11 @@ export class ListingsService {
   constructor(
     private _af: AngularFire,
     private _auth: AuthService
-  ) {}
+  ) {
+  }
 
 
-  getListing(arg: String = null) {
+  getListing(arg: String = null): Observable<Listing[]> {
     if (arg !== null) {
       this.listings = this._af.database.list('/listings', {
         query: {
@@ -31,6 +37,9 @@ export class ListingsService {
     return this.listings;
   }
 
+
+
+
   getListingByStatus(arg: string = null) {
     this.listings = this._af.database.list('/listings', {
       query: {
@@ -39,6 +48,10 @@ export class ListingsService {
       }
     }) as FirebaseListObservable<Listing[]>;
     return this.listings;
+  }
+
+  getSingleListing($key: string ) {
+    return this._af.database.object('/listings/' + $key);
   }
 
   addListing(newListing) {
