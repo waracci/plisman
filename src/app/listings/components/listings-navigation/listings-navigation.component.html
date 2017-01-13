@@ -3,7 +3,7 @@
   <div class="col-md-6">
     <ul class="nav navbar-nav float-xs-right">
   <li class="nav-item">
-    <button class="btn btn-primary">Post A Listing</button>
+    <a class="btn btn-primary" [routerLink]="['/post-listing']" *ngIf="noauth.authenticated()">Post A Listing</a>
   </li>
   <li class="nav-item dropdown"  ngbDropdown #myDrop1="ngbDropdown">
     <a class="nav-link dropdown-toggle" id="dropdownMenu1" ngbDropdownToggle>Listing Status <b class="caret"></b></a>

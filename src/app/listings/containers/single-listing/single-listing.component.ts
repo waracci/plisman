@@ -1,3 +1,6 @@
+
+import { Component, OnInit } from '@angular/core';
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -7,11 +10,19 @@ import 'rxjs/add/operator/take';
 import { Listing } from '../../../shared/models';
 import { ListingsService } from '../../../shared/services';
 
+
 @Component({
   selector: 'app-single-listing',
   templateUrl: './single-listing.component.html',
   styleUrls: ['./single-listing.component.css']
 })
+
+export class SingleListingComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+
 export class SingleListingComponent implements OnInit, OnDestroy {
   listing: Listing;
   subscription: Subscription;
