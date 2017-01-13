@@ -8,7 +8,6 @@ import { Ng2PaginationModule } from 'ng2-pagination';
 
 import { SharedModule } from '../shared/shared.module';
 import { ListingsService, ListingTypeService, LocationsService, StatusService } from '../shared/services';
-import { SearchPipe } from '../shared/pipes/search.pipe';
 
 import { ListingsComponent } from './containers/listings/listings.component';
 import { PostListingComponent } from './containers/post-listing/post-listing.component';
